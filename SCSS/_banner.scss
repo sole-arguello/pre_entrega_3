@@ -1,0 +1,19 @@
+main{
+    .banner{
+        .banner__portada{
+            .banner__portada--contenedor{
+                .img__portada {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    height: 600px;
+                }
+                .contenedor__info{
+                    .titulo{}
+                    .marca{}
+                }
+            }
+        }
+
+    }
+}

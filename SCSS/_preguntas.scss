@@ -1,0 +1,19 @@
+main{
+    .preguntas{
+        .preguntas__titulo{}
+
+        .preguntas__contenedor{
+            .preguntas__contenedor--cont{
+                .preguntas__subtitulo{
+                    .preguntas__btn{
+                        background: rgb(250, 243, 229);
+                        //background: rgb(238, 231, 221);
+                    }
+                }
+                .preguntas__respuesta{
+                    .preguntas__respuesta--texto{}
+                }               
+            }
+        }
+    }
+}

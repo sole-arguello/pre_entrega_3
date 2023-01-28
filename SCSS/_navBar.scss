@@ -1,0 +1,23 @@
+.header{
+    .header__nav{
+        background: rgb(250, 243, 229);
+        box-shadow: 0px 2px 5px rgb(154, 153, 153);
+        .header__nav--container{
+            .header__nav--container-logo{
+                border-radius: 100%;
+                width: 7%;
+                height: 7%;
+            }
+            .header__nav--container-btnMovil{}
+            .header__nav--container-menu{
+                .menu{
+                    .menu__li{
+                        .menu__li--link{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

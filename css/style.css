@@ -1,0 +1,40 @@
+.header .header__nav {
+  background: rgb(250, 243, 229);
+  box-shadow: 0px 2px 5px rgb(154, 153, 153);
+}
+.header .header__nav .header__nav--container .header__nav--container-logo {
+  border-radius: 100%;
+  width: 7%;
+  height: 7%;
+}
+main .banner .banner__portada .banner__portada--contenedor .img__portada {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+main .productos {
+  padding: 0 20px;
+}
+main .productos .productos__titulo {
+  font-size: 3rem;
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+main .productos .productos__contenedorGral {
+  padding: 0 100px;
+}
+main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .img__card .contenedor__info .contenedor__info--btn {
+  background: rgb(240, 225, 200);
+}
+
+main .preguntas .preguntas__contenedor .preguntas__contenedor--cont .preguntas__subtitulo .preguntas__btn {
+  background: rgb(250, 243, 229);
+}
+main footer {
+  margin-top: 50px;
+  background: rgb(240, 225, 200);
+  box-shadow: -2px -1px 5px rgb(114, 113, 113);
+}
+
+/*# sourceMappingURL=style.css.map */
