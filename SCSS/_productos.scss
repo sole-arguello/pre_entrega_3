@@ -11,14 +11,15 @@ main{
             .productos__contenedorGral--contCard{
                 .productos__contenedorGral--contCard-card{
                     .img__card{
-                        .contenedor__info{
-                            .contenedor__info--titulo{}
-                            .contenedor__info--precio{}
-                            .contenedor__info--btn{
-                                background: rgb(240, 225, 200); 
-                            }
-                        }
+                        height: 350px;
                     }
+                    .contenedor__info{
+                        .contenedor__info--titulo{}
+                        .contenedor__info--precio{}
+                        .contenedor__info--btn{
+                            background: rgb(240, 225, 200); 
+                        }
+                    }                    
 
                 }
             }

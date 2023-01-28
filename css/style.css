@@ -24,7 +24,10 @@ main .productos .productos__titulo {
 main .productos .productos__contenedorGral {
   padding: 0 100px;
 }
-main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .img__card .contenedor__info .contenedor__info--btn {
+main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .img__card {
+  height: 350px;
+}
+main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .contenedor__info .contenedor__info--btn {
   background: rgb(240, 225, 200);
 }
 

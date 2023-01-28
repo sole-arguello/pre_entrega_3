@@ -14,8 +14,8 @@ const pintarProductos = () =>{
                 <div class="contenedor__info card-body">
                     <h5 class="contenedor__info--titulo card-title fs-3">${arrayProducto.producto} 
                     <span class=" fs-5 text-secondary "> - ${arrayProducto.modelo}</span></h5>
-                    <p class="contenedor__info--precio fs-4">$ ${arrayProducto.precio}</p>
-                    <a href="#" class="contenedor__info--btn btn link-dark" id=${arrayProducto.id}>Agrgar al carrito</a>
+                    <p class="contenedor__info--precio card-text fs-4">$ ${arrayProducto.precio}</p>
+                    <a href="#" class="contenedor__info--btn btn btn-secondary link-dark">Agregar al carrito</a>
                 </div>
             </div>
         `
