@@ -2,6 +2,7 @@
 const contenedorProductos = document.getElementById("cardProductos")
 const contenedorCarrito = document.getElementById("carritoContenedor")
 
+const btnVaciarCarrito = document.getElementById("vaciarCarrito")
 
 
 let carrito = []
@@ -32,7 +33,13 @@ stokDeProductos.forEach(arrayProducto => {
         agregarAlCarrito(arrayProducto.id)
         
     })
-})   
+}) 
+
+//vaciar carrito
+btnVaciarCarrito.addEventListener("click", () => {
+    carrito.length = 0;
+    actualizarCarrito()
+})
 
 //por parametro le doy el id del prod
 const agregarAlCarrito = (prodId) => {
@@ -63,15 +70,11 @@ const actualizarCarrito = () =>{
             <p class="body__producto col">${arrayCarrito.producto}</P>
             <p class="body__precio col">Precio: ${arrayCarrito.precio}</p>
             <p class="body__cant col">Cantidad: <span id="cantidad">${arrayCarrito.cantidad}</span></p>
-            <a id="eliminarDelCarrito${arrayCarrito.id}" class="body__btnElim col text-center ">🗑️</a>
+            
+            <button id="eliminarDelCarrito${arrayCarrito.id}" class="body__btnElim col text-center ">🗑️</button>
         `
         contenedorCarrito.appendChild(contItemsCarrito)
 
-        const btnEliminar = document.getElementById(`eliminarDelCarrito${arrayCarrito.id}`)
-        btnEliminar.addEventListener("click", () => {
-            eliminarDelCarrito(arrayCarrito.id)
-        }) 
-            
-        
-})
+
+    })
 }

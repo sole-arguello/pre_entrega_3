@@ -44,4 +44,8 @@ main footer {
   box-shadow: -2px -1px 5px rgb(114, 113, 113);
 }
 
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-footer {
+  justify-content: space-between;
+}
+
 /*# sourceMappingURL=style.css.map */
