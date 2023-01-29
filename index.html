@@ -41,30 +41,7 @@
             </li>
           </ul>
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-        
+          <button type="button" class="btnCarrito btn btn-secondary" data-bs-toggle="modal" data-bs-target="#miModal">🛒</button>
           <!-- <form class="form d-flex">
             <input class="form__input form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="form__btn btn btn-outline-secondary" type="submit">Search</button>
@@ -73,9 +50,35 @@
       </div>
     </nav>
   </header>
+  <!-- Modal -->
+  <div class="carrito modal fade" id="miModal" tabindex="-1" aria-labelledby="#modalTitle" aria-hidden="true">
+    <div class="carrito__cont modal-dialog modal-lg">
+      <div class="carrito__cont--cont modal-content">
+        <div class="carrito__cont--cont-header modal-header">
+          <h5 class="carrito__title modal-title" id="#modalTitle">Su Carrito</h5>
+          <button type=" button" class="carrito__btnClose btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="carrito__cont--cont-body modal-body" id="carritoContenedor">
+          <!-- <span id=""></span>
+          <img class="body__img" src="" alt="producto">
+          <h5 class="body__producto" >producto</h5>
+          <p class="body__modelo"> modelo</p>
+          <p class="body__talle">talle</p>
+          <p class="body__color">color</p>
+          <p class="body__precio">precio</p> -->
+        </div>
+        <div class="carrito__cont--cont-footer modal-footer">
+          <p class="">Precio Total: $ <span id="precioTotal">0</span> </p>
+          <button id="vaciarCarrito" type="button" class="footer__btnConfirmar btn btn-secondary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 
+  <button type="button" class="footer__btnClose btn btn-secondary" data-bs-dismiss="modal">Close</button>  -->
   
   <main class="">
-    
+    <!--  banner  -->
     <section class="banner carousel carousel-dark slide" id="carouselExampleDark" data-bs-ride="carousel">
       
       <div class="banner__portada carousel-inner">
@@ -90,6 +93,7 @@
 
     </section>
     
+    <!-- Shop productos  -->
     <section class="productos" id="productos">
       
       <h1 class="productos__titulo">Nuestros Productos</h1>
@@ -197,8 +201,11 @@
   </main>
   
 
-    <script src="array.js"></script>
-    <script src="crearProductos.js"></script>
+    <script src="./js/array.js"></script>
+    <script src="./js/crearProductos.js"></script>
+    <script src="./js/carrito.js"></script>
+    <!-- <script src="./js/modal.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
     crossorigin="anonymous"></script>

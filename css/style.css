@@ -1,12 +1,16 @@
-.header .header__nav {
+.header__nav {
   background: rgb(250, 243, 229);
   box-shadow: 0px 2px 5px rgb(154, 153, 153);
 }
-.header .header__nav .header__nav--container .header__nav--container-logo {
+.header__nav--container-logo {
   border-radius: 100%;
   width: 7%;
   height: 7%;
 }
+.header__nav--container-menu .btnCarrito {
+  background: rgb(250, 243, 229);
+}
+
 main .banner .banner__portada .banner__portada--contenedor .img__portada {
   background-repeat: no-repeat;
   background-position: center;
