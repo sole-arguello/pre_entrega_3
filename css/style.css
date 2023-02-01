@@ -29,9 +29,13 @@ main .productos .productos__contenedorGral {
   padding: 0 100px;
 }
 main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .img__card {
-  height: 350px;
+  height: 300px;
 }
-main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .contenedor__info .contenedor__info--btn {
+main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .contenedor__body .contenedor__body--info {
+  display: flex;
+  justify-content: space-between;
+}
+main .productos .productos__contenedorGral .productos__contenedorGral--contCard .productos__contenedorGral--contCard-card .contenedor__body--btn {
   background: rgb(240, 225, 200);
 }
 
@@ -44,6 +48,10 @@ main footer {
   box-shadow: -2px -1px 5px rgb(114, 113, 113);
 }
 
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carritoBody .body__btnElim {
+  color: red;
+  cursor: pointer;
+}
 .carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-footer {
   justify-content: space-between;
 }
