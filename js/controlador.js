@@ -8,7 +8,10 @@ const btnTodos = document.getElementById("todos")
 const btnConjunto = document.getElementById("conjuntos")
 const btnTop = document.getElementById("top")
 const btnBombis = document.getElementById("bombis")
-let carrito = []
+
+/*---------- storage (set Item) ----------------------*/
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //recorro elarray
 function pintarCrad(categoria){
@@ -88,6 +91,8 @@ const agregarAlCarrito = (prodId) => {
         //console.log(carrito)
     }
     pintarProductosEnCarrito()
+    //para que persistan los datos del carrito
+    guardarLocal();
 }
 const pintarProductosEnCarrito = () =>{
     //cada vez que llamo a la funcio borro el nodo y lo inicio vacio
@@ -123,15 +128,20 @@ const eliminarDelCarrito = (prodId) =>{
     const itemCarrito = carrito.find((prod) => prod.id === prodId)
     const indice = carrito.indexOf(itemCarrito)
     carrito.splice(indice, 1)
+    //para que actualice
+    guardarLocal()
     pintarProductosEnCarrito()
 }
 //escucho el evento del boron vaciar carrito y borra todos los productos
-btnVaciarCarrito.onclick = () => { carrito.length = 0; pintarProductosEnCarrito();
+btnVaciarCarrito.onclick = () => { 
+    carrito.length = 0;
+    //para que actualice
+    guardarLocal() 
+    pintarProductosEnCarrito();
 }
+//luego de cargar agregar al carrito pinto para que persistan los datos
+pintarProductosEnCarrito()
+/*------------- Storage (get Item)----------------------*/
 
-
-/*------------- Storage ----------------------*/
-
-
-
+const guardarLocal = () => { localStorage.setItem("carrito", JSON.stringify(carrito)) }
 
