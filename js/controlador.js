@@ -3,12 +3,14 @@ const contenedorProductos = document.getElementById("cardProductos")
 const contenedorCarrito = document.getElementById("carritoContenedor")
 const contadorCarrito = document.getElementById("contadorCarrito")
 const totalProductos = document.getElementById("precioTotal")
+//botones
 const btnVaciarCarrito = document.getElementById("vaciarCarrito")
 const btnTodos = document.getElementById("todos")
 const btnConjunto = document.getElementById("conjuntos")
 const btnTop = document.getElementById("top")
 const btnBombis = document.getElementById("bombis")
 const btnMjeCarritoVacio = document.getElementById("btnCarrito")
+//const btnMjeConfirmarCompra = document.getElementById()
 
 /*---------- storage (set Item) ----------------------*/
 
@@ -63,11 +65,16 @@ btnTodos.onclick = () => { pintarCrad() }
 btnConjunto.onclick = () =>{ filtrarCategorias("Conjunto")/*console.log("1")*/}
 btnTop.onclick = () =>{ filtrarCategorias("Top") /*console.log("2")*/}
 btnBombis.onclick = () =>{ filtrarCategorias("Bombis") /*console.log("3")*/}
-btnMjeCarritoVacio.onclick = () =>{
-    mjeCarritoVacio()
-}
+btnMjeCarritoVacio.onclick = () =>{ mjeCarritoVacio() }
+//btnMjeConfirmarCompra.onclick = () => { mjeCompraConfirmada() }
 
 
+
+//funcion de confirmar compra
+// const mjeCompraConfirmada = () =>{
+//     alert("gracias por su compra")
+    
+// }
 //funcion mensaje carrito vacio
 const mjeCarritoVacio = () => {
     const contMje = document.createElement("p")
@@ -123,8 +130,7 @@ const pintarProductosEnCarrito = () =>{
                 <span class="signos " id="sumar"><i class="bi bi-plus-square"></i></span>
             </div>
 
-            <p class="body__subtototal col-lg pt-lg-5 fs-5">Sub-total: 
-            <span class="fw-semibold " id="cantidad"> $${arrayCarrito.cantidad * arrayCarrito.precio}</span></p>
+            <p class="body__subtototal col-lg pt-lg-5 fs-5">Sub-total: <span class="fw-semibold " id="cantidad"> $${arrayCarrito.cantidad * arrayCarrito.precio}</span></p>
             
             <a id="eliminarDelCarrito${arrayCarrito.id}" class="body__btnElim col-lg pt-lg-5"><i class="bi bi-trash3"></i></>
         `
@@ -139,6 +145,7 @@ const pintarProductosEnCarrito = () =>{
         //escucho el boton y elimino uno a uno los elementos del carrito
         const btnElim = document.getElementById(`eliminarDelCarrito${arrayCarrito.id}`)
         btnElim.onclick = () => { eliminarDelCarrito() }
+        
     })
     //muestra el incremento del carrito
     contadorCarrito.innerText = carrito.length
