@@ -1,18 +1,18 @@
 main{
     .preguntas{
-        .preguntas__titulo{}
+        &__titulo{
+            font-size: 2.4rem !important;
+            margin-bottom: 50px;
+        }
 
-        .preguntas__contenedor{
-            .preguntas__contenedor--cont{
+        &__contenedor{
+            &--cont{
                 .preguntas__subtitulo{
-                    .preguntas__btn{
+                    &__btn{
                         background: rgb(250, 243, 229);
                         //background: rgb(238, 231, 221);
                     }
-                }
-                .preguntas__respuesta{
-                    .preguntas__respuesta--texto{}
-                }               
+                }             
             }
         }
     }

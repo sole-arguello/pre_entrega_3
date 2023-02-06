@@ -1,16 +1,13 @@
 main{
     .banner{
-        .banner__portada{
-            .banner__portada--contenedor{
+        &__portada{
+            &--contenedor{
                 .img__portada {
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
-                    height: 600px;
-                }
-                .contenedor__info{
-                    .titulo{}
-                    .marca{}
+                    margin-top: 90px;
+                    height: 350px;
                 }
             }
         }

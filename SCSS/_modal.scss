@@ -1,26 +1,23 @@
 .carrito{
-    .carrito__cont{
-        .carrito__cont--cont{
-            .carrito__cont--cont-header{
-                .carrito__title{}
-                .carrito__btnClose{}
-            }
-            .carrito__cont--cont-body{
+    &__cont{
+        &--cont{
+            &-body{
                 .carritoBody{
-                    
-                    .body__img{}
-                    .body__producto{}
-                    .body__precio{}
+                    .body__cant {
+
+                        .signos{
+                            cursor: pointer;
+                        }
+                    }
                     .body__btnElim{
                         color: red;
                         cursor: pointer;
                     }
                 }
             }
-            .carrito__cont--cont-footer{
+            &-footer{
                 justify-content: space-between;
-                .footer__btnClose{}
-                .footer__btnConfirmar{}
+
             }
         }
     }

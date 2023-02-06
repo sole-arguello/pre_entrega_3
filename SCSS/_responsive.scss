@@ -1,0 +1,89 @@
+// @include media-breakpoint-up(sm) {
+
+// }
+@include media-breakpoint-up(sm) { 
+    main{
+        .banner{
+            &__portada{
+                &--contenedor{
+                    .img__portada {
+                        margin-top: 100px;
+                        height: 600px;
+                    }
+                }
+            }
+    
+        }    
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .header{
+        &__nav{
+            &--container{
+                &-logo{
+                    width: 15%;
+                    height: 15%;
+                }
+            }
+        }
+    }
+    main{
+        .banner{
+            &__portada{
+                &--contenedor{
+                    .img__portada {
+                        margin-top: 90px;
+                    }
+                }
+            }
+    
+        }
+
+        .productos{
+            &__titulo{
+                font-size: 3rem;
+            }
+        }
+    }
+
+}
+@include media-breakpoint-up(lg){
+    .header{
+        &__nav{
+            &--container{
+                &-logo{
+                    width: 15%;
+                    height: 15%;
+                }
+            }
+        }
+    }
+}
+@include media-breakpoint-up(xl){
+    .header{
+        &__nav{
+            &--container{
+                &-logo{
+                    width: 7%;
+                    height: 7%;
+                }
+            }
+        }
+    }
+    main{
+        .banner{
+            .banner__portada{
+                .banner__portada--contenedor{
+                    .img__portada {
+                        height: 550px;
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+
+

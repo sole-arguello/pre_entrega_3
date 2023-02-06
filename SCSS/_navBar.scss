@@ -5,18 +5,10 @@
         &--container{
             &-logo{
                 border-radius: 100%;
-                width: 7%;
-                height: 7%;
+                width: 30%;
+                height: 30%;
             }
-            &-btnMovil{}
             &-menu{
-                .menu{
-                    &__li{
-                        &--link{
-
-                        }
-                    }
-                }
                 .btnCarrito{
                     background: rgb(250, 243, 229); 
                 }
@@ -24,3 +16,5 @@
         }
     }
 }
+
+

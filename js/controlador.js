@@ -8,14 +8,15 @@ const btnTodos = document.getElementById("todos")
 const btnConjunto = document.getElementById("conjuntos")
 const btnTop = document.getElementById("top")
 const btnBombis = document.getElementById("bombis")
+const btnMjeCarritoVacio = document.getElementById("btnCarrito")
 
 /*---------- storage (set Item) ----------------------*/
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //recorro elarray
-function pintarCrad(categoria){
-    //actualizo al html para spintar segun la categoria que elija
+const pintarCrad = (categoria) => {
+    //actualizo al html para pintar segun la categoria que elija
     contenedorProductos.innerHTML = "";
     
     let prodAMostrar;
@@ -23,17 +24,14 @@ function pintarCrad(categoria){
     if(categoria){
         //guardo una copia el array original
         prodAMostrar = categoria
-        console.log(prodAMostrar)
     }else{
-        //sino existe la categoria que muestre el array productos
+        //sino existe la categoria que muestre el array original
         prodAMostrar = productos
-        console.log(prodAMostrar)
     }
     // recrroro la copia 
     prodAMostrar.forEach(elProducto => {
-        //creo el elem contenedor hijo
+        //creo el elem contenedor hijo - su clase - y el bloque de elementos del del dom
         const contenedorCard =  document.createElement("div")
-        //creo su clase
         contenedorCard.classList.add("productos__contenedorGral--contCard", "col")
         contenedorCard.innerHTML = `
             <div class="productos__contenedorGral--contCard-card card h-100">
@@ -52,28 +50,40 @@ function pintarCrad(categoria){
        `
         //agrego los elementos al padre
         contenedorProductos.appendChild(contenedorCard);
-        //escucho el evento del click en el boton agregar
+        //escucho el evento del click en el boton agregar y por c/click agrego un prod
         const btnAgregar = document.getElementById(`agregar${elProducto.id}`)
-        //por cada click en un boton se agrega el producto
         btnAgregar.onclick = () =>{ agregarAlCarrito(elProducto.id) }
     }) 
 }
 pintarCrad()
+
 
 //eventos que escucha los botones de las categorias
 btnTodos.onclick = () => { pintarCrad() }
 btnConjunto.onclick = () =>{ filtrarCategorias("Conjunto")/*console.log("1")*/}
 btnTop.onclick = () =>{ filtrarCategorias("Top") /*console.log("2")*/}
 btnBombis.onclick = () =>{ filtrarCategorias("Bombis") /*console.log("3")*/}
+btnMjeCarritoVacio.onclick = () =>{
+    mjeCarritoVacio()
+}
 
+
+//funcion mensaje carrito vacio
+const mjeCarritoVacio = () => {
+    const contMje = document.createElement("p")
+    contMje.classList.add("text-center", "fs-5")
+    contMje.innerHTML = `No hay productos en el carrito`
+    contenedorCarrito.appendChild(contMje)
+}
 //funcion que filtra la categoria de productos 
 const filtrarCategorias = (categoria) => {
+    
     const filtrarCateg = productos.filter(prod => prod.categoria === categoria)
     //console.log(filtrarCateg)
     pintarCrad(filtrarCateg)
 }
 
-//por parametro le doy el id del prod
+//funcion que agrga productos al carrito - por parametro le doy el id del prod
 const agregarAlCarrito = (prodId) => {
     //para no repetir el producto
     const existe = carrito.some(prod => prod.id === prodId)
@@ -94,35 +104,48 @@ const agregarAlCarrito = (prodId) => {
     //para que persistan los datos del carrito
     guardarLocal();
 }
+//funcion que pinta el carrito
 const pintarProductosEnCarrito = () =>{
     //cada vez que llamo a la funcio borro el nodo y lo inicio vacio
     contenedorCarrito.innerHTML = ""
+
     //recorre el array y lo llena con info actualizada
     carrito.forEach((arrayCarrito) => {
         const contItemsCarrito = document.createElement("div")
-        contItemsCarrito.classList.add("carritoBody", "row")
+        contItemsCarrito.classList.add("carritoBody", "row", "py-2")
         contItemsCarrito.innerHTML = `
-            <img class="body__img col" src="${ arrayCarrito.img }">
-            <p class="body__producto col">${arrayCarrito.titulo}</P>
-            <p class="body__precio col">Precio: ${arrayCarrito.precio}</p>
-            <p class="body__cant col">Cantidad: <span id="cantidad">${arrayCarrito.cantidad}</span></p>
-            <p class="body__subtototal col">Sub-total: <span id="cantidad"> ${arrayCarrito.cantidad * arrayCarrito.precio}</span></p>
+            <img class="body__img col-lg img-fluid " src="${ arrayCarrito.img }">
+            <p class="body__producto col-lg pt-lg-5 fs-5">${arrayCarrito.titulo}</P>
+            <p class="body__precio col-lg pt-lg-5 fs-5">Precio: <span class="fw-semibold">$${arrayCarrito.precio}</span></p>
+            <div class="body__cant col-lg pt-lg-5">
+                <span class="signos " id="restar"><i class="bi bi-dash-square"></i></span>
+                <span  class="num px-2 fs-3" id="cantidad">${arrayCarrito.cantidad}</span> 
+                <span class="signos " id="sumar"><i class="bi bi-plus-square"></i></span>
+            </div>
+
+            <p class="body__subtototal col-lg pt-lg-5 fs-5">Sub-total: 
+            <span class="fw-semibold " id="cantidad"> $${arrayCarrito.cantidad * arrayCarrito.precio}</span></p>
             
-            <a id="eliminarDelCarrito${arrayCarrito.id}" class="body__btnElim col text-center "><i class="bi bi-trash3"></i></>
+            <a id="eliminarDelCarrito${arrayCarrito.id}" class="body__btnElim col-lg pt-lg-5"><i class="bi bi-trash3"></i></>
         `
         contenedorCarrito.appendChild(contItemsCarrito)
 
+        //escucho los botones de suma y resta
+        const btnRestar = document.getElementById("restar")
+        btnRestar.onclick = () => {if(arrayCarrito.cantidad !== 1){  arrayCarrito.cantidad --} guardarLocal(); pintarProductosEnCarrito() }
+        const btnSumar = document.getElementById("sumar")
+        btnSumar.onclick = () => { arrayCarrito.cantidad ++; guardarLocal(); pintarProductosEnCarrito() }
+
         //escucho el boton y elimino uno a uno los elementos del carrito
         const btnElim = document.getElementById(`eliminarDelCarrito${arrayCarrito.id}`)
-        btnElim.onclick = () => {eliminarDelCarrito();/*console.log("elimino")*/}
-        
+        btnElim.onclick = () => { eliminarDelCarrito() }
     })
     //muestra el incremento del carrito
     contadorCarrito.innerText = carrito.length
     //por cada producto, el acumulador le sume precio al prod 
     totalProductos.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
 }
-//elimina los productos del carrito NO del stock
+//funcion que elimina los productos del carrito NO del stock
 const eliminarDelCarrito = (prodId) =>{
     //obtengo el elem del array por medio de su indice
     const itemCarrito = carrito.find((prod) => prod.id === prodId)
@@ -132,12 +155,13 @@ const eliminarDelCarrito = (prodId) =>{
     guardarLocal()
     pintarProductosEnCarrito()
 }
-//escucho el evento del boron vaciar carrito y borra todos los productos
+//escucho el evento del boton vaciar carrito y borra todos los productos
 btnVaciarCarrito.onclick = () => { 
     carrito.length = 0;
-    //para que actualice
+    //para que actualice y luego pinte
     guardarLocal() 
     pintarProductosEnCarrito();
+    mjeCarritoVacio()
 }
 //luego de cargar agregar al carrito pinto para que persistan los datos
 pintarProductosEnCarrito()
