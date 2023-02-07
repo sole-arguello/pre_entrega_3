@@ -11,9 +11,6 @@ const btnTop = document.getElementById("top")
 const btnBombis = document.getElementById("bombis")
 const btnMjeCarritoVacio = document.getElementById("btnCarrito")
 
-/*------------- Storage (get Item)----------------------*/
-
-const guardarLocal = () => { localStorage.setItem("carrito", JSON.stringify(carrito)) }
 
 /*---------- storage (set Item) ----------------------*/
 
@@ -69,16 +66,15 @@ pintarCrad()
 
 //eventos que escucha los botones de las categorias
 btnTodos.onclick = () => { pintarCrad() }
-btnConjunto.onclick = () =>{ filtrarCategorias("Conjunto")/*console.log("1")*/}
-btnTop.onclick = () =>{ filtrarCategorias("Top") /*console.log("2")*/}
-btnBombis.onclick = () =>{ filtrarCategorias("Bombis") /*console.log("3")*/}
+btnConjunto.onclick = () =>{ filtrarCategorias("Conjunto")}
+btnTop.onclick = () =>{ filtrarCategorias("Top")}
+btnBombis.onclick = () =>{ filtrarCategorias("Bombis")}
 
 
 //funcion que filtra la categoria de productos 
 const filtrarCategorias = (categoria) => {
     
     const filtrarCateg = productos.filter(prod => prod.categoria === categoria)
-    //console.log(filtrarCateg)
     pintarCrad(filtrarCateg)
 }
 
@@ -131,7 +127,7 @@ const pintarProductosEnCarrito = () =>{
 
         //escucho el boton y elimino uno a uno los elementos del carrito
         const btnTachitoElim = document.getElementById(`eliminarDelCarrito${arrayCarrito.id}`)
-        btnTachitoElim.onclick = () => { eliminarDelCarrito(arrayCarrito.id, arrayCarrito.cantidad) }
+        btnTachitoElim.onclick = () => { eliminarDelCarrito(arrayCarrito.id) }
         
     })
 
@@ -184,3 +180,6 @@ btnVaciarCarrito.onclick = () => {
 pintarProductosEnCarrito()
 
 
+/*------------- Storage (get Item)----------------------*/
+
+const guardarLocal = () => { localStorage.setItem("carrito", JSON.stringify(carrito)) }
