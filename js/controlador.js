@@ -1,4 +1,4 @@
-//traigo al contenedor padre
+//traigo los contenedores padre
 const contenedorProductos = document.getElementById("cardProductos")
 const contenedorCarrito = document.getElementById("carritoContenedor")
 let contadorCarrito = document.getElementById("contadorCarrito")
@@ -78,6 +78,7 @@ const filtrarCategorias = (categoria) => {
     pintarCrad(filtrarCateg)
 }
 
+//tomo la longitud en el html comienza en cero
 let contadorProdEncarrito = carrito.length;
 //funcion que pinta el carrito
 const pintarProductosEnCarrito = () =>{
@@ -105,7 +106,7 @@ const pintarProductosEnCarrito = () =>{
         `
         contenedorCarrito.appendChild(contItemsCarrito)
 
-        //escucho los botones de suma y resta
+        //escucho los botones de resta guardo en local y pinto
         const btnRestar = document.getElementById(`restar${arrayCarrito.id}`)
         btnRestar.onclick = () => {
             if(arrayCarrito.id && arrayCarrito.cantidad > 0){  
@@ -116,7 +117,7 @@ const pintarProductosEnCarrito = () =>{
         guardarLocal(); 
         pintarProductosEnCarrito() }
 
-
+        //escucho los botones de suma guardo en local y pinto
         const btnSumar = document.getElementById(`sumar${arrayCarrito.id}`)
         btnSumar.onclick = () => { 
             arrayCarrito.cantidad ++; 
@@ -127,19 +128,21 @@ const pintarProductosEnCarrito = () =>{
 
         //escucho el boton y elimino uno a uno los elementos del carrito
         const btnTachitoElim = document.getElementById(`eliminarDelCarrito${arrayCarrito.id}`)
-        btnTachitoElim.onclick = () => { eliminarDelCarrito(arrayCarrito.id) }
+        btnTachitoElim.onclick = () => { eliminarDelCarrito(arrayCarrito.id, arrayCarrito.cantidad) }
         
     })
 
     //por cada producto, el acumulador le sume precio al prod 
     totalProductos.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
 }
-//funcion que agrga productos al carrito - por parametro le doy el id del prod
+
+
+//funcion que agrega productos al carrito - por parametro le doy el id del prod
 const agregarAlCarrito = (prodId) => {
     //para no repetir el producto
     const existe = carrito.some(prod => prod.id === prodId)
     if(existe){
-        //encuentro el producto agregado y le sumo la cantidad
+        //encuentro el producto agregado y le agrego la cantidad
         const prod = carrito.map(prod => {
             if(prod.id === prodId){
                 prod.cantidad ++
@@ -152,19 +155,20 @@ const agregarAlCarrito = (prodId) => {
         //console.log(carrito)
     }
     pintarProductosEnCarrito()
-    //para que persistan los datos del carrito
+    //guardo para que persistan los datos del carrito
     guardarLocal();
+    
 }
 
-//funcion que elimina los productos del carrito NO del stock
+//funcion que elimina uno a uno los productos del carrito NO del stock
 const eliminarDelCarrito = (prodId, cantidad) =>{
     //obtengo el elem del array por medio de su indice
     const itemCarrito = carrito.find((prod) => prod.id === prodId)
     const indice = carrito.indexOf(itemCarrito)
     carrito.splice(indice, 1)
 
-    // contadorProdEncarrito = contadorProdEncarrito - cantidad; 
-    // contadorCarrito.innerText = contadorProdEncarrito 
+    contadorProdEncarrito = contadorProdEncarrito - cantidad; 
+    contadorCarrito.innerText = contadorProdEncarrito 
     //para que actualice
     guardarLocal()
     pintarProductosEnCarrito()
