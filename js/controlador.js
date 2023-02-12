@@ -129,9 +129,9 @@ const pintarProductosEnCarrito = () =>{
     //recorre el array y lo llena con info actualizada
     carrito.forEach((producto) => {
         const contItemsCarrito = document.createElement("div")
-        contItemsCarrito.classList.add("carritoBody", "py-2")
+        contItemsCarrito.classList.add("carrito__body", "carritoBody", "d-flex", "justify-content-center","py-2")
         contItemsCarrito.innerHTML = `
-            <img class="body__img  " src="${ producto.img }">
+            <img class="body__img" src="${ producto.img }">
             <p class="body__producto col-lg pt-lg-5 fs-5">${producto.titulo}</P>
             <p class="body__precio col-lg pt-lg-5 fs-5">Precio: <span class="fw-semibold">$${producto.precio}</span></p>
             <div class="body__cant col-lg pt-lg-5">
@@ -142,7 +142,7 @@ const pintarProductosEnCarrito = () =>{
 
             <p class="body__subtototal col-lg pt-lg-5 fs-5">Sub-total: <span class="fw-semibold " id="cantidad"> $${producto.cantidad * producto.precio}</span></p>
         
-            <a id="eliminarDelCarrito(${producto.id})" class="body__btnElim col-lg pt-lg-5"><i class="bi bi-trash3"></i></>
+            <a id="eliminarDelCarrito${producto.id}" class="body__btnElim col-lg pt-lg-5"><i class="bi bi-trash3"></i></>
         `
         contenedorCarrito.appendChild(contItemsCarrito)
         //por cada click aumenta el numero del carrito
@@ -162,6 +162,12 @@ const pintarProductosEnCarrito = () =>{
            
                 producto.cantidad++;
                 pintarProductosEnCarrito()
+        })
+
+        const eliminar = document.getElementById(`eliminarDelCarrito${producto.id}`)
+        eliminar.addEventListener("click", () =>{
+           eliminarDelCarrito(producto.id)
+           pintarProductosEnCarrito()
         })
     })
        //por cada producto, el acumulador le sume precio al prod 

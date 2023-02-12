@@ -1,8 +1,13 @@
 .carrito{
-    &__cont{
-        &--cont{
-            &-body{
-                .carritoBody{
+    .carrito__cont {
+        .carrito__cont--cont{
+            .carrito__cont--cont-body {
+                .carrito__body{
+                    .body__img{
+                        width: 200px;
+                        padding:20px;
+                        height: 200px;
+                    }
                     .body__cant {
 
                         .signos{
