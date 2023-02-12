@@ -11665,17 +11665,29 @@ main footer {
   box-shadow: -2px -1px 5px rgb(114, 113, 113);
 }
 
-.carrito__cont--cont-body .carritoBody .body__cant .signos {
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__img {
+  width: 100px;
+  height: 100px;
+}
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info {
+  justify-content: center;
+  width: 50%;
+}
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info .body__cant {
+  justify-content: center;
+}
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info .body__cant .signos {
   cursor: pointer;
 }
-.carrito__cont--cont-body .carritoBody .body__btnElim {
+.carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info .body__btnElim {
   color: red;
   cursor: pointer;
 }
-.carrito__cont--cont-footer {
-  justify-content: space-between;
-}
-
 @media (min-width: 576px) {
   main .banner__portada--contenedor .img__portada {
     margin-top: 100px;
@@ -11698,6 +11710,23 @@ main footer {
   .header__nav--container-logo {
     width: 15%;
     height: 15%;
+  }
+  .carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__img {
+    width: 100px;
+    height: 100px;
+  }
+  .carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info .body__cant .signos {
+    cursor: pointer;
+  }
+  .carrito .carrito__cont .carrito__cont--cont .carrito__cont--cont-body .carrito__body .body__info .body__btnElim {
+    color: red;
+    cursor: pointer;
+    margin-right: 50px;
   }
 }
 @media (min-width: 1200px) {

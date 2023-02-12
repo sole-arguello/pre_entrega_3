@@ -3,25 +3,40 @@
         .carrito__cont--cont{
             .carrito__cont--cont-body {
                 .carrito__body{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
                     .body__img{
-                        width: 200px;
-                        padding:20px;
-                        height: 200px;
+                        width: 100px;
+                        height: 100px;
                     }
-                    .body__cant {
-
-                        .signos{
-                            cursor: pointer;
+                    .body__info{
+                        justify-content: center;
+                        width: 50%;
+                        .body__cant {
+                            justify-content: center;
+                            .signos{
+                                cursor: pointer;
+                            }
                         }
-                    }
-                    .body__btnElim{
-                        color: red;
-                        cursor: pointer;
+                        .body__btnElim{
+                            color: red;
+                            cursor: pointer;
+                            
+                        }
                     }
                 }
             }
-            &-footer{
-                justify-content: space-between;
+            .carrito__cont--cont-footer{
+                .footer__precio{}
+                .footer__botones{
+                    .footer_btnVaciar{
+                        
+                    }
+                    .footer__btnConfirmar{
+
+                    }
+                }
 
             }
         }

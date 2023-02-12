@@ -59,6 +59,48 @@
             }
         }
     }
+    .carrito{
+        .carrito__cont {
+            .carrito__cont--cont{
+                .carrito__cont--cont-body {
+                    .carrito__body{
+                        
+                        .body__img{
+                            width: 100px;
+                            height: 100px;
+                        }
+                        .body__info{
+                            width: 70%;
+                            display: flex;
+                            justify-content: space-around;
+                            .body__cant {
+                                .signos{
+                                    cursor: pointer;
+                                }
+                            }
+                            .body__btnElim{
+                                color: red;
+                                cursor: pointer;
+                                margin-right: 50px;
+                            }
+                        }
+                    }
+                }
+                .carrito__cont--cont-footer{
+                    .footer__precio{}
+                    .footer__botones{
+                        .footer_btnVaciar{
+                            
+                        }
+                        .footer__btnConfirmar{
+    
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
 }
 @include media-breakpoint-up(xl){
     .header{
