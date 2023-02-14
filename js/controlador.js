@@ -3,6 +3,7 @@ const contenedorShop = document.getElementById("cardProductos")
 const contadorCarrito = document.getElementById("contadorCarrito")
 const contenedorCarrito = document.getElementById("carritoContenedor")
 const totalSumaProductos = document.getElementById("precioTotal")
+const contTituloCategoria = document.getElementById("tituloCategoria")
 
 //CONTENEDOR BOTON VACIAR CARRITO
 const vaciarCarrito = document.getElementById("vaciarCarrito")
@@ -26,9 +27,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 //console.log(carrito)
 
-
 //FUNION QUE AGREGA PRODUCTOS AL CARRITO -> en pintarCard
-function agregarProductos (prodId){
+const agregarProductos = (prodId) => {
     //para no repetir el producto
     const existe = carrito.some(prod => prod.id === prodId)
     console.log(existe)
@@ -36,8 +36,7 @@ function agregarProductos (prodId){
         const prod = carrito.map(prod => {
        // console.log(prod)
             if(prod.id === prodId){
-                let cant = prod.cantidad++
-                console.log(cant)
+                prod.cantidad++
             }
         })
     }else{
@@ -59,20 +58,21 @@ function eliminarDelCarrito(id){
 vaciarCarrito.addEventListener("click", ()=>{
     carrito.length = []
     pintarProductosEnCarrito()
-
 })
+
 
 //FUNCION QUE FILTRA LAS CATEGORIAS -> en botones todos-conjunto-top-bombis
 const filtrarCategorias = (categoria) => {
-    
+ 
     const filtrarCateg = productos.filter(prod => prod.categoria === categoria)
+    //console.log(filtrarCateg)
     pintarCard(filtrarCateg)
 }
 //EVENTOS QUE ESCUCHA LOS BOTONES DE LAS CATEGORIAS -> en pintarCard
-btnTodos.onclick = () => { pintarCard() }
-btnConjunto.onclick = () =>{ filtrarCategorias("Conjunto")}
-btnTop.onclick = () =>{ filtrarCategorias("Top")}
-btnBombis.onclick = () =>{ filtrarCategorias("Bombis")}
+btnTodos.onclick = () => pintarCard() 
+btnConjunto.onclick = () => { contTituloCategoria.innerText= "Conjuntos"; filtrarCategorias("Conjunto") }
+btnTop.onclick = () => { contTituloCategoria.innerText= "Top"; filtrarCategorias("Top")}
+btnBombis.onclick = () =>{ contTituloCategoria.innerText= "Bombis"; filtrarCategorias("Bombis")}
 
 
 //FUNCION QUE PINTA LAS CARD EN EL DOM
@@ -82,6 +82,7 @@ const pintarCard = (categoria) => {
    
     //creo una variable auxiliar y pregunto si existe la categoria
     let prodAMostrar;
+   
     if(categoria){
         //guardo una copia del array original
         prodAMostrar = categoria
@@ -89,7 +90,7 @@ const pintarCard = (categoria) => {
         //sino existe la categoria que muestre el array original
         prodAMostrar = productos
     }
-    // recrroro la copia 
+    // recorro la copia 
     prodAMostrar.forEach((producto) =>{
        
         const content = document.createElement("div")
@@ -164,9 +165,8 @@ const pintarProductosEnCarrito = () =>{
         })
         const sumar = document.getElementById(`sumar${producto.id}`)
         sumar.addEventListener("click" , ()=>{
-           
-                producto.cantidad++;
-                pintarProductosEnCarrito()
+            producto.cantidad++;
+            pintarProductosEnCarrito()
         })
 
         const eliminar = document.getElementById(`eliminarDelCarrito${producto.id}`)
@@ -175,17 +175,14 @@ const pintarProductosEnCarrito = () =>{
            pintarProductosEnCarrito()
         })
     })
-       //por cada producto, el acumulador le sume precio al prod 
-       totalSumaProductos.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+    //por cada producto, el acumulador le sume precio al prod 
+    totalSumaProductos.innerText = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
     
-    // mostrar cartel cuando no hay nada en el carrito
+    //mostrar cartel cuando no hay nada en el carrito
     if(carrito.length === 0){
         carritoContenedor.innerHTML = `
-        <p class="text-center text-primary "> !No Hay Productos! </p>
-        
-        `
+        <p class="text-center text-primary "> !No Hay Productos! </p>`
     }else{
-
         console.log("algo")
     }
     //IGUALA CANTIDADES DEL CARRITO DEL HEADER A LO QUE TENGA EL CARRITO
