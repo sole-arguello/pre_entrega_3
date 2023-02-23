@@ -2,7 +2,7 @@
       Deberás agregar y entregar uso de JSON y Storage, y DOM y eventos del usuario, 
       correspondientes a la tercera entrega de tu proyecto final.
       
-### DEMO: 
+### DEMO: https://sole-arguello.github.io/pre_entrega_3/
 
 ## Temas visto:
 8. DOM
