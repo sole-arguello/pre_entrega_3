@@ -42,8 +42,8 @@
      * Modificación del DOM y detección de eventos de usuario.
      
 ### Nota obtenida:
-![imagen](img/nota.png)
+![imagen](nota.png)
 
 ### Devolucion:
-![imagen](img/devolucion.png)
+![imagen](devolucion.png)
 
