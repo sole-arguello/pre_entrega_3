@@ -42,8 +42,7 @@ const agregarProductos = (prodId) => {
     }else{
         //busco que coincida el id y cargo el producto al carrito
         const item = productos.find((prod) => prod.id === prodId)
-        carrito.push(item)
-        console.log(carrito)       
+        carrito.push(item)      
     }
     pintarProductosEnCarrito()
 }
@@ -51,6 +50,7 @@ const agregarProductos = (prodId) => {
 function eliminarDelCarrito(id){
     const prodId = id
     carrito = carrito.filter((prod) => prod.id !== prodId)
+    console.log(carrito)
     // llamo a la funcion que muestra el carrito
     pintarProductosEnCarrito()
 }
@@ -126,7 +126,7 @@ const pintarProductosEnCarrito = () =>{
     //cada vez que llamo a la funcion borro el nodo y lo inicio vacio
     contenedorCarrito.innerHTML = ""
     //para el incremento del numero en el carrito
-    let totalOfProducts= 0
+    let totalOfProducts = 0
     //recorre el array y lo llena con info actualizada
     carrito.forEach((producto) => {
         const contItemsCarrito = document.createElement("div")
@@ -147,9 +147,7 @@ const pintarProductosEnCarrito = () =>{
             
             </div>
             <a id="eliminarDelCarrito${producto.id}" class="body__btnElim"><i class="bi bi-trash3 icono"></i></a> 
-    
-
-        `
+            `
         contenedorCarrito.appendChild(contItemsCarrito)
         //por cada click aumenta el numero del carrito
         totalOfProducts = totalOfProducts + producto.cantidad
