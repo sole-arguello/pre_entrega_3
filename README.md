@@ -1,5 +1,6 @@
 # pre_entrega_3: Simulador Interactivo (tercera parte)
-  # llevado a un Proyecto Integrador (Ecommerce)
+
+  ## Llevado a un Proyecto Integrador (Ecommerce)
       Deberás agregar y entregar uso de JSON y Storage, y DOM y eventos del usuario, 
       correspondientes a la tercera entrega de tu proyecto final.
       
